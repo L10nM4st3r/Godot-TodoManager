@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://dj0ueqk8n4i0l"]
+[gd_scene load_steps=5 format=3 uid="uid://dj0ueqk8n4i0l"]
+
+[ext_resource type="Texture2D" uid="uid://q1kbul8wtus7" path="res://addons/todomenu/icon_add.svg" id="1_kbghk"]
+[ext_resource type="Script" path="res://addons/todomenu/changelog_category.gd" id="1_xl8tv"]
+[ext_resource type="Texture2D" uid="uid://b67iq6brk6qus" path="res://addons/todomenu/icon_complete.svg" id="2_x5mk2"]
+[ext_resource type="Texture2D" uid="uid://c7gmlvugobsv0" path="res://addons/todomenu/icon_edit.svg" id="4_yvoir"]
 
 [node name="s" type="ScrollContainer"]
 custom_minimum_size = Vector2(260, 0)
@@ -6,6 +11,7 @@ offset_right = 270.0
 offset_bottom = 238.0
 size_flags_vertical = 3
 follow_focus = true
+script = ExtResource("1_xl8tv")
 
 [node name="item_list" type="VBoxContainer" parent="."]
 clip_contents = true
@@ -19,20 +25,50 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="title" type="Label" parent="item_list/p"]
+[node name="h" type="HBoxContainer" parent="item_list/p"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="title" type="Label" parent="item_list/p/h"]
+layout_mode = 2
+size_flags_horizontal = 3
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
+
+[node name="left" type="TextureButton" parent="item_list/p/h"]
+layout_mode = 2
+texture_normal = ExtResource("2_x5mk2")
+stretch_mode = 3
+flip_h = true
+
+[node name="add" type="TextureButton" parent="item_list/p/h"]
+layout_mode = 2
+texture_normal = ExtResource("1_kbghk")
+stretch_mode = 3
+
+[node name="edit" type="TextureButton" parent="item_list/p/h"]
+layout_mode = 2
+texture_normal = ExtResource("4_yvoir")
+stretch_mode = 3
+
+[node name="right" type="TextureButton" parent="item_list/p/h"]
+layout_mode = 2
+texture_normal = ExtResource("2_x5mk2")
+stretch_mode = 3
 
 [node name="l" type="VBoxContainer" parent="item_list"]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
+
+[connection signal="button_up" from="item_list/p/h/left" to="." method="move_left"]
+[connection signal="button_up" from="item_list/p/h/add" to="." method="add_item"]
+[connection signal="button_up" from="item_list/p/h/edit" to="." method="edit_title"]
+[connection signal="button_up" from="item_list/p/h/right" to="." method="move_right"]

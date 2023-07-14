@@ -17,7 +17,9 @@ script = ExtResource("1_lesix")
 
 [node name="edit" type="ConfirmationDialog" parent="."]
 initial_position = 1
-size = Vector2i(500, 300)
+size = Vector2i(500, 200)
+unresizable = true
+popup_window = true
 ok_button_text = "Save"
 dialog_autowrap = true
 
@@ -26,6 +28,23 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 492.0
 offset_bottom = 251.0
+placeholder_text = "Text ..."
+
+[node name="edit_title" type="ConfirmationDialog" parent="."]
+initial_position = 1
+title = "Rename title"
+size = Vector2i(500, 88)
+unresizable = true
+popup_window = true
+min_size = Vector2i(200, 88)
+ok_button_text = "Save"
+dialog_autowrap = true
+
+[node name="t" type="LineEdit" parent="edit_title"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 492.0
+offset_bottom = 39.0
 placeholder_text = "Text ..."
 
 [node name="p" type="Panel" parent="."]
@@ -46,9 +65,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="todo" type="ScrollContainer" parent="tabs"]
-visible = false
 layout_mode = 2
 horizontal_scroll_mode = 0
+metadata/_tab_name = "ToDo List"
 
 [node name="h" type="VBoxContainer" parent="tabs/todo"]
 layout_mode = 2
@@ -56,8 +75,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="changelog" type="ScrollContainer" parent="tabs"]
+visible = false
 layout_mode = 2
 vertical_scroll_mode = 0
+metadata/_tab_name = "Changelog"
 
 [node name="h" type="HBoxContainer" parent="tabs/changelog"]
 clip_contents = true
@@ -87,5 +108,6 @@ layout_mode = 2
 text = "Add to Changelog"
 
 [connection signal="confirmed" from="edit" to="." method="_on_edit_confirmed"]
+[connection signal="confirmed" from="edit_title" to="." method="_on_edit_title_confirmed"]
 [connection signal="button_up" from="actions/add_todo" to="." method="_on_add_todo"]
 [connection signal="button_up" from="actions/add_changelog" to="." method="_on_add_changelog"]
