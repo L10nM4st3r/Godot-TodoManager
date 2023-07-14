@@ -9,7 +9,7 @@ The addon adds a ToDo tab to the bottom panel, which looks like this when clicke
 
 ![Example of the ToDo menu in use. You can have as many items in this list as you need.](/todo.png)
 
-This allows you to add notes for things you want to add or change. When you finish doing something, you can press the arrow button to move the item to the Changelog (which automatically turns some words like "add" and "fix" to "added" and "fixed" respectively.
+This allows you to add notes for things you want to add or change. When you finish doing something, you can press the arrow button to move the item to the Changelog (which automatically turns some words like "add" and "fix" to "added" and "fixed" respectively).
 
 The Changelog can be used to remind you what you have changed and acomplished on that day. It might be motivational to you, reminding you what you have acomplished, and in the future I plan on adding a feature to create a changelog text that can be copy-pasted into your website or a GitHub project page.
 
