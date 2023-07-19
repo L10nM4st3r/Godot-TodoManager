@@ -48,7 +48,7 @@ func update_changelogs():
 			# If title matches tooltip, tooltip shows only the date
 			cat.get_node("item_list/p").tooltip_text = (i.tooltip if i.title==i.tooltip else i.title+'\n\n'+i.tooltip)
 			# Save the index as the current day (user can reindex categories)
-			if i.hash==hash(current_date):CURRENT_CHANGELOG=index-1
+			if i.hash==hash(get_current_date_title()):CURRENT_CHANGELOG=index-1
 			
 			changelog_list.add_child(cat)
 			update_category( cat.get_node("item_list/l"), i.content )
@@ -81,6 +81,7 @@ func _on_add_todo():
 
 
 func _on_add_changelog():
+	current_date = get_current_date_title()
 	category=true
 	if add_to_menu and!add_to_menu.is_inside_tree():pass
 	elif changelog and changelog[-1].hash==hash(current_date):add_to_menu = changelog_list.get_child(CURRENT_CHANGELOG)
@@ -102,11 +103,14 @@ func _on_edit_confirmed():if add_to_menu:
 		save()
 		return
 	
-	if!add_to_menu.is_inside_tree():changelog_list.add_child(add_to_menu)
+	if!add_to_menu.is_inside_tree():
+		changelog_list.add_child(add_to_menu)
+		changelog_list.move_child(add_to_menu,0)
 	var add = TodoItem.instantiate()
 	add.get_child(0).text=$edit/t.text
 	
 	if category:
+		current_date = get_current_date_title()
 		# Add the item to the array
 		if changelog and changelog[-1].hash==hash(current_date):
 			changelog[add_to_menu.get_index()].content.append($edit/t.text)

@@ -18,8 +18,8 @@ func move_left():
 	var current=owner.CURRENT_CHANGELOG==get_index()
 	get_parent().move_child(self,get_index()-1)
 	var v=owner.changelog[get_index()]
-	owner.changelog.remove_at(get_index())
-	owner.changelog.insert(get_index()-1,v)
+	owner.changelog.remove_at(get_index()+1)
+	owner.changelog.insert(get_index(),v)
 	if current:owner.CURRENT_CHANGELOG=get_index()
 
 func move_right():

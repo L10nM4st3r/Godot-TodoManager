@@ -43,22 +43,26 @@ text_overrun_behavior = 3
 
 [node name="left" type="TextureButton" parent="item_list/p/h"]
 layout_mode = 2
+tooltip_text = "Move left"
 texture_normal = ExtResource("2_x5mk2")
 stretch_mode = 3
 flip_h = true
 
 [node name="add" type="TextureButton" parent="item_list/p/h"]
 layout_mode = 2
+tooltip_text = "Add item to this category"
 texture_normal = ExtResource("1_kbghk")
 stretch_mode = 3
 
 [node name="edit" type="TextureButton" parent="item_list/p/h"]
 layout_mode = 2
+tooltip_text = "Edit title"
 texture_normal = ExtResource("4_yvoir")
 stretch_mode = 3
 
 [node name="right" type="TextureButton" parent="item_list/p/h"]
 layout_mode = 2
+tooltip_text = "Move right"
 texture_normal = ExtResource("2_x5mk2")
 stretch_mode = 3
 

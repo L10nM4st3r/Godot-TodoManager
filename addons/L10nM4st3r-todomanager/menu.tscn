@@ -101,10 +101,12 @@ alignment = 2
 
 [node name="add_todo" type="Button" parent="actions"]
 layout_mode = 2
+tooltip_text = "Add an item to the ToDo list"
 text = "Add ToDo"
 
 [node name="add_changelog" type="Button" parent="actions"]
 layout_mode = 2
+tooltip_text = "Add item to the Changelog"
 text = "Add to Changelog"
 
 [connection signal="confirmed" from="edit" to="." method="_on_edit_confirmed"]

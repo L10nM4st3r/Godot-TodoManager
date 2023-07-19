@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b67iq6brk6qus" path="res://addons/todomenu/icon_complete.svg" id="4_23aid"]
 
 [node name="todo_item" type="Panel"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 38)
 offset_right = 305.0
 offset_bottom = 20.0
 size_flags_horizontal = 3
@@ -32,6 +32,7 @@ offset_top = 2.0
 offset_right = -15.0
 offset_bottom = 18.0
 grow_horizontal = 0
+tooltip_text = "Delete item"
 texture_normal = ExtResource("2_yvpnr")
 stretch_mode = 3
 
@@ -45,6 +46,7 @@ offset_top = 20.0
 offset_right = -15.0
 offset_bottom = 36.0
 grow_horizontal = 0
+tooltip_text = "Edit item"
 texture_normal = ExtResource("3_wdtk2")
 stretch_mode = 3
 
@@ -58,6 +60,7 @@ offset_left = -12.0
 offset_top = 2.0
 offset_bottom = 18.0
 grow_horizontal = 0
+tooltip_text = "ToDo completed - move to changelog"
 texture_normal = ExtResource("4_23aid")
 stretch_mode = 3
 
